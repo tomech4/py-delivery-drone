@@ -22,3 +22,11 @@ class BaseRobot:
 
     def get_info(self) -> str:
         return f"Robot: {self.name}, Weight: {self.weight}"
+
+class FlyingRobot(BaseRobot):
+    def __init__(self, name: str, weight: int, coords: list[int] = [0, 0, 0]) -> None:
+        if len(coords) < 3:
+            super().__init__(name, weight, coords)
+            self.coords.append(0)
+
+        super().__init__(name, weight, coords)
